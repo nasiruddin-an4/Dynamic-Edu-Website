@@ -34,7 +34,7 @@ export default function FacultyPage() {
 
   // 🟢 Fetch faculty list from server
   useEffect(() => {
-    fetch("http://localhost:5000/faculty")
+    fetch("https://dynamic-edu-website-server.vercel.app/faculty")
       .then((res) => res.json())
       .then((data) => setFaculties(data))
       .catch((err) => console.error("Error fetching faculties:", err));
@@ -58,8 +58,8 @@ export default function FacultyPage() {
 
     const method = editingId ? "PUT" : "POST";
     const url = editingId
-      ? `http://localhost:5000/faculty/${editingId}`
-      : "http://localhost:5000/faculty";
+      ? `https://dynamic-edu-website-server.vercel.app/faculty/${editingId}`
+      : "https://dynamic-edu-website-server.vercel.app/faculty";
 
     try {
       const res = await fetch(url, {
@@ -101,7 +101,9 @@ export default function FacultyPage() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/faculty/${id}`, { method: "DELETE" })
+        fetch(`https://dynamic-edu-website-server.vercel.app/faculty/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then(() => {
             setFaculties((prev) => prev.filter((f) => f._id !== id));
