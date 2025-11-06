@@ -47,11 +47,6 @@ const menuItems = [
     href: "/admin/reports",
   },
   {
-    icon: Settings,
-    label: "Settings",
-    href: "/admin/settings",
-  },
-  {
     icon: HelpCircle,
     label: "Support",
     href: "/admin/support",
